@@ -1,0 +1,1088 @@
+
+<html><head><meta charset ="UTF-8"><style>#cy {
+  width: 100%;
+  height: 100%;
+  display: block;
+}</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head><body>
+
+        <div id = "cy" </div>
+       <div id="canvasbutton-84" class="node button"
+             style="visibility: hidden; width: auto; height: auto; white-space: nowrap; position: absolute;
+                                      font-family: Open Sans, Arial, sans-serif; font-size: 12px; line-height: 26px"; font-weight: 300>ПОРТФОЛИО</div>
+									  <script src="cytoscape.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+ var windowsWightCof = $(window).width() /1400;
+ var cy = cytoscape({
+
+  container: $('#cy'),
+
+
+  
+    zoom: windowsWightCof,
+          panningEnabled: true,  
+          boxSelectionEnabled:false,
+		  
+
+
+
+            style: cytoscape.stylesheet()
+                .selector('.node')
+                .css({
+                    'background-color': '#2e5a9d',
+                    'background-fit': 'cover',
+                    'border-color': '#000',
+                    'border-width': 0,
+                    'border-opacity': 1
+                })
+                .selector(':active')
+                .css({
+                    'background-color': '#851a1e',
+                    'background-fit': 'cover',
+                    'border-color': '#000',
+                    'border-width': 0,
+                    'border-opacity': 1,
+                    'opacity': 1
+                })
+               
+                .selector(".first-level")
+                .css({
+                    'height': 83,
+                    'width': 83,
+                })
+
+                .selector(".second-level")
+                .css({
+                    'height': 45,
+                    'width': 45,
+                })
+                .selector(".third-level")
+                .css({
+                   
+                    'height': 10,
+                    'width': 10,
+                    
+                    
+                })
+                .selector(".button")
+                .css({
+                    'background-color': '#A02D31',
+                    'font-family': (navigator.userAgent.toLowerCase().indexOf("firefox")>0) ? 'Open Sans, Arial, sans-serif' : 'Open Sans, Arial, sans-serif',
+                    'font-weight': '300',
+                    'color': '#FFF',
+                    'shape': 'roundrectangle',
+                    'text-valign': 'center',
+                    'text-transform': 'uppercase',
+                    'font-size': '12px',
+                    'line-height': '26px',
+                    'width': 100,
+                    'height': 26,
+                    'vertical-align': 'middle',
+                    'text-halign': 'center',
+                    'content':'data(name)',
+                })
+                .selector(".edge")
+                .css({
+                    'width': 0.5
+                })
+                .selector(".edgeNone")
+                .css({
+                    'width': 0
+                })
+                .selector('.text')
+                .css({
+                    'content': 'data(name)',
+                    'background-opacity': 0.0,
+                    //'font-family': 'opensans-semibold,Arial,sans-serif',
+                    'border-opacity': 0.0,
+                    'text-valign': 'center',
+
+                })
+                .selector('.node.active')
+                .css({
+
+                })
+                .selector(".first-level.active")
+                .css({
+                    'background-color': '#851a1e',
+                    
+                })
+
+                .selector(".second-level.active")
+                .css({
+                    'background-color': '#851a1e',
+                   
+                })
+                .selector(".third-level.active")
+                .css({
+                   
+                    
+                    
+                })
+                .selector('.first-level-title')
+                .css({
+                    'font-size': '38px',
+                    'font-weight': '700',
+                    'font-family': 'opensans-semibold,Arial,sans-serif',
+                    'text-transform': 'uppercase'
+                })
+                .selector('.second-level-title')
+                .css({
+                    'font-size': '20px',
+                    'font-family': 'opensans-semibold,Arial,sans-serif',
+                    'text-transform': 'uppercase'
+                })
+                .selector('.third-level-title')
+                .css({
+                    'font-size': '11px',
+                    'font-family': 'opensans-light,Arial,sans-serif',
+                    //'width': 40,
+                    //'height': 5,
+                    'text-halign': "center"
+                })
+                .selector('.first-level-text')
+                .css({
+                    'font-size': '16px',
+                    'font-family': 'opensans-light,Arial,sans-serif',
+                })
+                .selector('.second-level-text')
+                .css({
+                    'font-size': '11px',
+                    'font-family': 'opensans-light,Arial,sans-serif',
+                })
+                .selector('.first-level-title:active')
+                .css({
+                    'overlay-color':'#F9F9F9',
+                    'color': '#8A1D18'
+                })
+                .selector('.second-level-title:active')
+                .css({
+                    'overlay-color':'#F9F9F9',
+                    'color': '#8A1D18'
+                })
+                .selector('.third-level-title:active')
+                .css({
+                    'overlay-color':'#F9F9F9',
+                    'color': '#8A1D18'
+                })
+                .selector('.first-level-text:active')
+                .css({
+                    'overlay-color':'#F9F9F9',
+                    'color': '#8A1D18'
+                })
+                .selector('.second-level-text:active')
+                .css({
+                    'overlay-color':'#F9F9F9',
+                    'color': '#8A1D18'
+                }),
+
+            minZoom: 0.5,
+            maxZoom: 1.5,
+
+
+            elements: {
+                nodes: [
+
+                   
+                    {
+                    data: { id: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf', name: 'CROSS Service', link: "http://www.cross-dev.ru/ru/subdivisions/cross-service/" },
+                    position: { x: 870.026338346627, y: 256.90956968288 },
+                        css: {
+						
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node second-level',
+                           
+                    },
+                    {
+                    data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', name: 'CROSS Engineering', link: "http://www.cross-dev.ru/ru/subdivisions/cross-engineering/" },
+                    position: { x: 531.323529411765, y: 165.617647058823 },
+                        css: {
+                        'background-image': 'http://www.cross-dev.ru/uploadfiles/GraphImages/a560532f-bc75-409e-90da-bc07049c4028.svg'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node second-level',
+                           
+                    },
+                    {
+                    data: { id: 'c03d89fb-2127-4933-9646-c4b7c31def5e', name: 'Гидрокомфорт', link: "http://www.cross-dev.ru/ru/subdivisions/cross-construction/" },
+                    position: { x: 250.516511528738, y: 330.772445687717 },
+                        css: {
+                        'background-image': 'http://gidrokomfort.ru/templates/SimpleFirmBlue/images/logo.png'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node second-level',
+                           
+                    },
+                    {
+                    data: { id: '9d0d656c-46d3-47ba-92b9-17ae29b2c7ed', name: 'Услуги  технического заказчика', link: "http://www.cross-dev.ru/ru/services/technical_customer_services" },
+                    position: { x: 557.675261315504, y: 53.8772453362398 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '88fb9ddf-a339-4f26-bded-e28ae711e965', name: 'Услуги строительного контроля', link: "http://www.cross-dev.ru/ru/services/services-building-control" },
+                    position: { x: 606.223820450677, y: 108.102348836197 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '802887e8-e5f8-4094-91bc-644ca82e985d', name: 'Инжиниринговый консалтинг', link: "http://www.cross-dev.ru/ru/services/engineering-consulting" },
+                    position: { x: 490.71871284574, y: 78.1687722925559 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '96669631-fe25-4d7d-bc76-5767c33a9bef', name: 'Насосы', link: "http://www.cross-dev.ru/ru/services/general-contracting-service" },
+                    position: { x: 190.443240306614, y: 197.2084617277 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: 'b68a9fa5-e642-43bc-bd60-93fb7166164e', name: 'Металлоизделия', link: "http://www.cross-dev.ru/ru/services/construction-consulting" },
+                    position: { x: 242.407120654556, y: 225.749741810361 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '78d71256-5c88-4959-b753-b1374d0f223b', name: 'Техническая эксплуатация', link: "http://www.cross-dev.ru/ru/services/maintenance" },
+                    position: { x: 443.231043862633, y: 121.981020679423 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '8f707437-6f96-41ce-a51b-c216ee62bb3f', name: 'CROSS REALTOR', link: "http://www.cross-dev.ru/ru/subdivisions/cross-realtor" },
+                    position: { x: 373.195090382, y: 448.916005423954 },
+                        css: {
+                        'background-image': 'http://www.cross-dev.ru/uploadfiles/GraphImages/975fe22f-cb6e-4985-af54-ac79916f7118.svg'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node second-level',
+                           
+                    },
+                    {
+                    data: { id: '555b37d2-cdfb-4eeb-b2e6-d5c12f5acd6d', name: 'Сопровождение сделок', link: "http://www.cross-dev.ruhttp://www.cross-dev.ru/ru/services/support-of-transactions" },
+                    position: { x: 275.208498452923, y: 458.518253895295 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '18140495-0205-4380-a423-a75a3e74fc5e', name: 'Управление активами', link: "http://www.cross-dev.ru/ru/services/asset-management" },
+                    position: { x: 879.673386282837, y: 173.159744713818 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '453517ba-1d6b-453a-b63f-c64bc7b3cfdb', name: 'Комплексное управление девелоперским проектами ', link: "http://www.cross-dev.ru/ru/services/integrated-management-of-development-projects" },
+                    position: { x: 954.135285416216, y: 218.611341629075 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '5319cf6c-2fe9-4358-9eaf-39d3b6b6b609', name: 'Разработка концепций', link: "http://www.cross-dev.ruhttp://www.cross-dev.ru/ru/services/consulting-services" },
+                    position: { x: 984.087787847523, y: 275.607725826968 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '6244eccf-ac16-4e57-b481-b9177fb07147', name: 'Техническая эксплуатация', link: "http://www.cross-dev.ru/ru/services/maintenance" },
+                    position: { x: 426.494157831288, y: 108.12262372106 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '144' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: '398fc7a1-f025-4726-950b-5c52f98781f0', name: 'Инжиниринговый консалтинг', link: "http://www.cross-dev.ru/ru/services/engineering-consulting" },
+                    position: { x: 401.629006831319, y: 69.1014188124015 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '150' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: 'f4f6bea6-8b87-4705-b868-a72114a341f0', name: 'Услуги технического заказчика', link: "http://www.cross-dev.ru/ru/services/technical_customer_services" },
+                    position: { x: 651.024311458688, y: 49.2310902290501 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '174' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: '8dd56382-f6c4-486d-8e17-28b09c6bb8e5', name: 'Строительный контроль', link: "http://www.cross-dev.ru/ru/services/services-building-control" },
+                    position: { x: 674.561450959785, y: 97.0422088961701 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '126' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: 'bedd1932-cf11-4d99-89d9-3ba8dc72df44', name: 'CROSS ENGINEERING', link: "http://www.cross-dev.ru/ru/subdivisions/cross-engineering/" },
+                    position: { x: 665.741012642576, y: 166.193471608297 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '204' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-title',
+                           
+                    },
+                    {
+                    data: { id: '80df3096-dc8d-4af1-bb19-0e93638780be', name: 'тут можно текст', link: "http://www.cross-dev.ru/ru/article/about" },
+                    position: { x: 826.855815894409, y: 405.278816729003 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '522' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text first-level-text',
+                           
+                    },
+                    {
+                    data: { id: '3fd4d361-8acf-449c-b155-a2b9e7c583b8', name: 'Насосы', link: "http://www.cross-dev.ru/ru/services/general-contracting-service" },
+                    position: { x: 256.338675775092, y: 179.408673611326 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '162' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: 'be13bea8-0bd0-42ed-823a-2d0447d15e66', name: 'Металлоизделия', link: "http://www.cross-dev.ru/ru/services/construction-consulting" },
+                    position: { x: 334.978591208025, y: 218.745843644718 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '138' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: '86938405-3f3d-4dcd-be5d-60716e240d25', name: 'Гидрокомфорт', link: "http://www.cross-dev.ru/ru/subdivisions/cross-construction/" },
+                    position: { x: 360.773237303325, y: 265.489861209856 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '216' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-title',
+                           
+                    },
+                    {
+                    data: { id: '5d01ee11-1420-4da2-af36-a77142e72f57', name: 'Антикризисное управление', link: "http://www.cross-dev.ru/ru/services/crisis-management" },
+                    position: { x: 807.9433853264, y: 210.217657253542 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: '7c757442-7d85-4753-9458-26f67a97831f', name: 'Антикризисное управление', link: "http://www.cross-dev.ru/ru/services/crisis-management" },
+                    position: { x: 721.330325891187, y: 208.966680259625 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '144' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: '0d5944bc-48a7-4ca0-a851-79b63980dc98', name: 'CROSS REALTOR', link: "http://www.cross-dev.ru/ru/subdivisions/cross-realtor" },
+                    position: { x: 312.5, y: 411.764705882353 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '156' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-title',
+                           
+                    },
+                    {
+                    data: { id: '2df024ac-1b84-4020-a51a-c3aa9fa8b141', name: 'Продажа земельных участков', link: "http://www.cross-dev.ru/ru/projects/pro-business-park" },
+                    position: { x: 372.794117647059, y: 516.911764705883 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: 'a05c7023-afb3-48ba-a4d9-3717af8c11b2', name: 'Продажа земельных участков', link: "http://www.cross-dev.ru/ru/projects/pro-business-park" },
+                    position: { x: 386.029411764706, y: 542.64705882353 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '156' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: '2dfd7051-0e54-4823-b09e-302b54246533', name: 'Продажа/Аренда', link: "http://www.cross-dev.ru/ru/projects" },
+                    position: { x: 499.938073151662, y: 487.474193644263 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: 'd8082eab-f471-4b09-8970-6c9f2cbc547a', name: 'Продажа/Аренда', link: "http://www.cross-dev.ru/ru/projects" },
+                    position: { x: 540.441176470589, y: 502.941176470588 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '84' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: '119c8047-709d-4bb9-b3bd-ba6b0217ebc3', name: 'CROSS SERVICE', link: "http://www.cross-dev.ru/ru/subdivisions/cross-service/" },
+                    position: { x: 766.176470588235, y: 252.205882352941 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '156' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-title',
+                           
+                    },
+                    {
+                    data: { id: '2469f0ff-0bce-421a-a468-925a92c60ce6', name: 'Сопровождение сделок', link: "http://www.cross-dev.ruhttp://www.cross-dev.ru/ru/services/support-of-transactions" },
+                    position: { x: 212.559117183395, y: 472.990015764582 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '120' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text third-level-title',
+                           
+                    },
+                    {
+                    data: { id: 'n1', name: 'Cross Development', link: "http://www.cross-dev.ru/ru/article/about" },
+                    position: { x: 527.530215449291, y: 342.708355228586 },
+                        css: {
+                        'background-image': 'http://gidrokomfort.ru/templates/SimpleFirmBlue/images/logo.png'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node first-level',
+                           
+                    },
+                    {
+                    data: { id: 'b698af36-70a4-48d7-bfd2-c612ce2ce86a', name: 'CROSS GROUP', link: "http://www.cross-dev.ru/ru/article/about" },
+                    position: { x: 848.908909237218, y: 360.920453148628 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '552'  },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text first-level-title',
+                           
+                    },
+                    {
+                    data: { id: '57f0d958-0c99-423d-ab01-e77e77936f8e', name: 'Управление активами', link: "http://www.cross-dev.ru/ru/services/asset-management" },
+                    position: { x: 884.00577700751, y: 141.408434430964 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '114' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-text',
+                           
+                    },
+                    {
+                    data: { id: '9924a1c9-9ea0-42a0-9414-e5caff023b9b', name: 'Брокеридж', link: "http://www.cross-dev.ruhttp://www.cross-dev.ru/ru/services/brokerage" },
+                    position: { x: 291.911764705882, y: 506.617647058823 },
+                        css: {
+                        'background-image': 'none'
+                    },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'node third-level',
+                           
+                    },
+                    {
+                    data: { id: 'd0b4f747-c58d-4d8e-9bd1-2470f1de1503', name: 'Брокеридж', link: "http://www.cross-dev.ruhttp://www.cross-dev.ru/ru/services/brokerage" },
+                    position: { x: 255.554295149656, y: 517.447967209529 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '54' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-text',
+                           
+                    },
+                    {
+                    data: { id: '6344e884-b230-40af-a030-b5ddd8ba092e', name: 'Разработка концепций и проектирование', link: "http://www.cross-dev.ruhttp://www.cross-dev.ru/ru/services/consulting-services" },
+                    position: { x: 1031.7157712305, y: 254.477180820335 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '222' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-text',
+                           
+                    },
+                    {
+                    data: { id: '0df11476-f662-45a0-b95a-7b3f9f3436a7', name: 'Комплексное управление проектами', link: "http://www.cross-dev.ru/ru/services/integrated-management-of-development-projects" },
+                    position: { x: 991.276718659734, y: 195.436164067013 },
+                        css: {
+                        'background-image': 'none'
+                    },
+                                 css: { 'width': '192' },
+            selected: false,
+                    selectable: false,
+                    locked: true,
+                    grabbable: true,
+            classes: 'text second-level-text',
+                           
+                    },
+                ],
+
+                edges: [
+
+                {
+                data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e-9d0d656c-46d3-47ba-92b9-17ae29b2c7ed', source: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', target: '9d0d656c-46d3-47ba-92b9-17ae29b2c7ed' }, classes: "",
+                 },
+                {
+                data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e-88fb9ddf-a339-4f26-bded-e28ae711e965', source: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', target: '88fb9ddf-a339-4f26-bded-e28ae711e965' }, classes: "",
+                 },
+                {
+                data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e-802887e8-e5f8-4094-91bc-644ca82e985d', source: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', target: '802887e8-e5f8-4094-91bc-644ca82e985d' }, classes: "",
+                 },
+                {
+                data: { id: 'c03d89fb-2127-4933-9646-c4b7c31def5e-96669631-fe25-4d7d-bc76-5767c33a9bef', source: 'c03d89fb-2127-4933-9646-c4b7c31def5e', target: '96669631-fe25-4d7d-bc76-5767c33a9bef' }, classes: "",
+                 },
+                {
+                data: { id: 'c03d89fb-2127-4933-9646-c4b7c31def5e-b68a9fa5-e642-43bc-bd60-93fb7166164e', source: 'c03d89fb-2127-4933-9646-c4b7c31def5e', target: 'b68a9fa5-e642-43bc-bd60-93fb7166164e' }, classes: "",
+                 },
+                {
+                data: { id: '8f707437-6f96-41ce-a51b-c216ee62bb3f-555b37d2-cdfb-4eeb-b2e6-d5c12f5acd6d', source: '8f707437-6f96-41ce-a51b-c216ee62bb3f', target: '555b37d2-cdfb-4eeb-b2e6-d5c12f5acd6d' }, classes: "",
+                 },
+                {
+                data: { id: '78d71256-5c88-4959-b753-b1374d0f223b-6244eccf-ac16-4e57-b481-b9177fb07147', source: '78d71256-5c88-4959-b753-b1374d0f223b', target: '6244eccf-ac16-4e57-b481-b9177fb07147' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '802887e8-e5f8-4094-91bc-644ca82e985d-398fc7a1-f025-4726-950b-5c52f98781f0', source: '802887e8-e5f8-4094-91bc-644ca82e985d', target: '398fc7a1-f025-4726-950b-5c52f98781f0' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '9d0d656c-46d3-47ba-92b9-17ae29b2c7ed-f4f6bea6-8b87-4705-b868-a72114a341f0', source: '9d0d656c-46d3-47ba-92b9-17ae29b2c7ed', target: 'f4f6bea6-8b87-4705-b868-a72114a341f0' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '88fb9ddf-a339-4f26-bded-e28ae711e965-8dd56382-f6c4-486d-8e17-28b09c6bb8e5', source: '88fb9ddf-a339-4f26-bded-e28ae711e965', target: '8dd56382-f6c4-486d-8e17-28b09c6bb8e5' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e-bedd1932-cf11-4d99-89d9-3ba8dc72df44', source: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', target: 'bedd1932-cf11-4d99-89d9-3ba8dc72df44' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '96669631-fe25-4d7d-bc76-5767c33a9bef-3fd4d361-8acf-449c-b155-a2b9e7c583b8', source: '96669631-fe25-4d7d-bc76-5767c33a9bef', target: '3fd4d361-8acf-449c-b155-a2b9e7c583b8' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: 'b68a9fa5-e642-43bc-bd60-93fb7166164e-be13bea8-0bd0-42ed-823a-2d0447d15e66', source: 'b68a9fa5-e642-43bc-bd60-93fb7166164e', target: 'be13bea8-0bd0-42ed-823a-2d0447d15e66' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: 'c03d89fb-2127-4933-9646-c4b7c31def5e-86938405-3f3d-4dcd-be5d-60716e240d25', source: 'c03d89fb-2127-4933-9646-c4b7c31def5e', target: '86938405-3f3d-4dcd-be5d-60716e240d25' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf-5d01ee11-1420-4da2-af36-a77142e72f57', source: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf', target: '5d01ee11-1420-4da2-af36-a77142e72f57' }, classes: "",
+                 },
+                {
+                data: { id: '5d01ee11-1420-4da2-af36-a77142e72f57-7c757442-7d85-4753-9458-26f67a97831f', source: '5d01ee11-1420-4da2-af36-a77142e72f57', target: '7c757442-7d85-4753-9458-26f67a97831f' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf-18140495-0205-4380-a423-a75a3e74fc5e', source: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf', target: '18140495-0205-4380-a423-a75a3e74fc5e' }, classes: "",
+                 },
+                {
+                data: { id: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf-453517ba-1d6b-453a-b63f-c64bc7b3cfdb', source: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf', target: '453517ba-1d6b-453a-b63f-c64bc7b3cfdb' }, classes: "",
+                 },
+                {
+                data: { id: '8f707437-6f96-41ce-a51b-c216ee62bb3f-0d5944bc-48a7-4ca0-a851-79b63980dc98', source: '8f707437-6f96-41ce-a51b-c216ee62bb3f', target: '0d5944bc-48a7-4ca0-a851-79b63980dc98' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '8f707437-6f96-41ce-a51b-c216ee62bb3f-2df024ac-1b84-4020-a51a-c3aa9fa8b141', source: '8f707437-6f96-41ce-a51b-c216ee62bb3f', target: '2df024ac-1b84-4020-a51a-c3aa9fa8b141' }, classes: "",
+                 },
+                {
+                data: { id: '2df024ac-1b84-4020-a51a-c3aa9fa8b141-a05c7023-afb3-48ba-a4d9-3717af8c11b2', source: '2df024ac-1b84-4020-a51a-c3aa9fa8b141', target: 'a05c7023-afb3-48ba-a4d9-3717af8c11b2' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf-5319cf6c-2fe9-4358-9eaf-39d3b6b6b609', source: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf', target: '5319cf6c-2fe9-4358-9eaf-39d3b6b6b609' }, classes: "",
+                 },
+                {
+                data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e-78d71256-5c88-4959-b753-b1374d0f223b', source: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', target: '78d71256-5c88-4959-b753-b1374d0f223b' }, classes: "",
+                 },
+                {
+                data: { id: '8f707437-6f96-41ce-a51b-c216ee62bb3f-2dfd7051-0e54-4823-b09e-302b54246533', source: '8f707437-6f96-41ce-a51b-c216ee62bb3f', target: '2dfd7051-0e54-4823-b09e-302b54246533' }, classes: "",
+                 },
+                {
+                data: { id: '2dfd7051-0e54-4823-b09e-302b54246533-d8082eab-f471-4b09-8970-6c9f2cbc547a', source: '2dfd7051-0e54-4823-b09e-302b54246533', target: 'd8082eab-f471-4b09-8970-6c9f2cbc547a' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf-119c8047-709d-4bb9-b3bd-ba6b0217ebc3', source: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf', target: '119c8047-709d-4bb9-b3bd-ba6b0217ebc3' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '555b37d2-cdfb-4eeb-b2e6-d5c12f5acd6d-2469f0ff-0bce-421a-a468-925a92c60ce6', source: '555b37d2-cdfb-4eeb-b2e6-d5c12f5acd6d', target: '2469f0ff-0bce-421a-a468-925a92c60ce6' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: 'n1_354ee4c1-8ed3-4c40-b683-0765a2e2eacf', source: 'n1', target: '354ee4c1-8ed3-4c40-b683-0765a2e2eacf' }, classes: "",
+                 },
+                {
+                data: { id: 'n1_a667ef84-dbe9-4a85-95fa-5a983ef9746e', source: 'n1', target: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e' }, classes: "",
+                 },
+                {
+                data: { id: 'n1_c03d89fb-2127-4933-9646-c4b7c31def5e', source: 'n1', target: 'c03d89fb-2127-4933-9646-c4b7c31def5e' }, classes: "",
+                 },
+                {
+                data: { id: 'n1-b698af36-70a4-48d7-bfd2-c612ce2ce86a', source: 'n1', target: 'b698af36-70a4-48d7-bfd2-c612ce2ce86a' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: 'n1-8f707437-6f96-41ce-a51b-c216ee62bb3f', source: 'n1', target: '8f707437-6f96-41ce-a51b-c216ee62bb3f' }, classes: "",
+                 },
+                {
+                data: { id: 'n1-8f707437-6f96-41ce-a51b-c216ee62bb31', source: 'n1', target: '80df3096-dc8d-4af1-bb19-0e93638780be' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '18140495-0205-4380-a423-a75a3e74fc5e-57f0d958-0c99-423d-ab01-e77e77936f8e', source: '18140495-0205-4380-a423-a75a3e74fc5e', target: '57f0d958-0c99-423d-ab01-e77e77936f8e' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '8f707437-6f96-41ce-a51b-c216ee62bb3f-9924a1c9-9ea0-42a0-9414-e5caff023b9b', source: '8f707437-6f96-41ce-a51b-c216ee62bb3f', target: '9924a1c9-9ea0-42a0-9414-e5caff023b9b' }, classes: "",
+                 },
+                {
+                data: { id: '9924a1c9-9ea0-42a0-9414-e5caff023b9b-d0b4f747-c58d-4d8e-9bd1-2470f1de1503', source: '9924a1c9-9ea0-42a0-9414-e5caff023b9b', target: 'd0b4f747-c58d-4d8e-9bd1-2470f1de1503' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '5319cf6c-2fe9-4358-9eaf-39d3b6b6b609-6344e884-b230-40af-a030-b5ddd8ba092e', source: '5319cf6c-2fe9-4358-9eaf-39d3b6b6b609', target: '6344e884-b230-40af-a030-b5ddd8ba092e' }, classes: "edgeNone",
+                 },
+                {
+                data: { id: '453517ba-1d6b-453a-b63f-c64bc7b3cfdb-0df11476-f662-45a0-b95a-7b3f9f3436a7', source: '453517ba-1d6b-453a-b63f-c64bc7b3cfdb', target: '0df11476-f662-45a0-b95a-7b3f9f3436a7' }, classes: "edgeNone",
+                 },
+                ]
+            },
+
+            layout: {
+                name: 'null',
+                
+            }
+
+        });
+
+
+ cy.center();
+                    
+                   cy.zoomingEnabled(false);
+
+
+
+    $(window).resize(function(){
+        
+        cy.zoomingEnabled(true);
+        var windowsWightCof = $(window).width() /1400;
+        cy.zoom(windowsWightCof);
+        cy.zoomingEnabled(false);
+    });
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ cy.nodes().on("click", function(t) {
+        
+      t.originalEvent.button == 0 && (window.location.href = this.data().link)
+	  
+    });
+    cy.nodes().on("tap", function() {
+        var n = this;
+        $("#save-graph-button").html() == undefined && (window.location.href = this.data().link)
+    });
+    cy.elements(".node.first-level").on("mouseover", function() {
+        this.neighborhood(".node.second-level").animate({
+            css: {
+                height: 55,
+                width: 55
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        }).addClass("active").neighborhood(".text").addClass("active");
+        this.neighborhood(".node.second-level").connectedEdges().hide();
+        this.neighborhood(".node.third-level").animate({
+            css: {
+                height: 15,
+                width: 15
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        }).addClass("active");
+        this.neighborhood(".node.third-level").neighborhood(".third-level-title").forEach(function(ele) {
+            ele.animate({
+                css: {
+                    "font-size": "11px"
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }).addClass("active")
+        });
+        this.addClass("active").neighborhood(".text").addClass("active");
+        this.connectedEdges().show();
+        cy.nodes().forEach(function(ele) {
+            ele.hasClass("active") || (ele.animate({
+                css: {
+                    opacity: .3
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }), ele.addClass("inactive"))
+        })
+    });
+    cy.elements(".node.first-level").on("mouseout", function() {
+        this.removeClass("active").neighborhood(".text").removeClass("active");
+        cy.elements(".second-level").animate({
+            css: {
+                height: 45,
+                width: 45
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        }).removeClass("active").neighborhood(".text").removeClass("active");
+        cy.elements(".second-level").connectedEdges().show();
+        this.neighborhood(".node.third-level").animate({
+            css: {
+                height: 7,
+                width: 7
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        }).removeClass("active").neighborhood(".third-level-title").animate({
+            css: {
+                "font-size": "11px"
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        }).removeClass("active");
+        cy.nodes().forEach(function(ele) {
+            ele.hasClass("inactive") && (ele.animate({
+                css: {
+                    opacity: 1
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }), ele.removeClass("inactive"))
+        })
+    });
+    cy.elements(".node.second-level").on("mouseover", function() {
+        this.addClass("active").neighborhood(".node.third-level").addClass("active");
+		this.animate({
+            css: {
+                height: 55,
+                width: 55
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        })
+        this.neighborhood(".node.third-level").neighborhood(".third-level-title").addClass("active");
+        cy.elements(".third-level-title").animate({
+            css: {
+                "font-size": "11px"
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        });
+        this.neighborhood(".text").addClass("active");
+        cy.elements("edge").hide();
+        this.connectedEdges().show();
+        cy.elements(".first-level").connectedEdges().hide();
+        cy.elements(".button").hide();
+        cy.nodes().forEach(function(ele) {
+            ele.hasClass("active") || (ele.animate({
+                css: {
+                    opacity: .3
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }), ele.addClass("inactive"))
+        })
+    });
+    cy.elements(".node.second-level").on("mouseout", function() {
+        this.animate({
+            css: {
+                height: 45,
+                width: 45
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        }).removeClass("active").neighborhood(".node.third-level").removeClass("active");
+        cy.elements("edge").show();
+        this.neighborhood(".node.third-level").neighborhood(".third-level-title").removeClass("active");
+        cy.elements(".third-level-title").animate({
+            css: {
+                "font-size": "11px"
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        });
+        this.neighborhood(".text").removeClass("active");
+        cy.elements(".button").show();
+        cy.nodes().forEach(function(ele) {
+            ele.hasClass("inactive") && (ele.animate({
+                css: {
+                    opacity: 1
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }), ele.removeClass("inactive"))
+        })
+    });
+    cy.elements(".node.third-level").on("mouseover", function() {
+        this.addClass("active").neighborhood(".third-level-title").addClass("active");
+        this.animate({
+            css: {
+                  height: 15,
+                width: 15
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        });
+        cy.elements("edge").hide();
+        cy.elements(".button").hide();
+        cy.nodes().forEach(function(ele) {
+            ele.hasClass("active") || (ele.animate({
+                css: {
+                    opacity: .3
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }), ele.addClass("inactive"))
+        })
+    });
+    cy.elements(".node.third-level").on("mouseout", function() {
+        this.removeClass("active").neighborhood(".third-level-title").removeClass("active");
+       this.animate({
+            css: {
+                 height: 10,
+                width: 10
+            }
+        }, {
+            duration: 300,
+            queue: !1
+        });
+        cy.elements("edge").show();
+        cy.elements(".button").show();
+        cy.nodes().forEach(function(ele) {
+            ele.hasClass("inactive") && (ele.animate({
+                css: {
+                    opacity: 1
+                }
+            }, {
+                duration: 300,
+                queue: !1
+            }), ele.removeClass("inactive"))
+        })
+    });
+ 
+
+ 
+ }); 
+
+  
+
+
+
+ 
+
+  
+</script>
+
+</body>
