@@ -1,4 +1,3 @@
-
 <html><head><meta charset ="UTF-8"><style>#cy {
   width: 100%;
   height: 100%;
@@ -204,7 +203,7 @@
                     data: { id: 'a667ef84-dbe9-4a85-95fa-5a983ef9746e', name: 'CROSS Engineering', link: "http://www.cross-dev.ru/ru/subdivisions/cross-engineering/" },
                     position: { x: 531.323529411765, y: 165.617647058823 },
                         css: {
-                        'background-image': 'http://www.cross-dev.ru/uploadfiles/GraphImages/a560532f-bc75-409e-90da-bc07049c4028.svg'
+                        'background-image': 'sneik.png'
                     },
             selected: false,
                     selectable: false,
@@ -860,35 +859,232 @@
  
  
  
+
  
- function nodeAnimate (initial, objects){
- var anims = [];
- for (var x = 0; x< objects.length; x++){
- anims[x] = objects[x].animation(
- {
  
+ function secondLevelIncrease(objects) {
+  
+  for ( var x = 0; x< objects.length; x++){
+   var ele = objects[x];
+   secondLevelSize[x] = ele.animation({
             css: {
-                height: initial + 10,
-                width: initial + 10
-				
+                height: 55,
+                width: 55
             }
-        }
-		, {
-            duration: 300,
+        }, {
+            duration:  (55 - parseInt(ele.style("height"))) *30,
             queue: !1
-		
-			
+        })  ; 
+ 
+ 
+ 
+ }
+ 
+ 
+
+ 
+ }
+ 
+ 
+  function secondLevelDecrease(objects) {
+  
+  for ( var x = 0; x< objects.length; x++){
+   var ele = objects[x];
+   secondLevelSize[x] = ele.animation({
+              css: {
+                height: 45,
+                width: 45
+            }
+        }, {
+            duration: (parseInt(ele.style("height")) - 45) * 30,
+            queue: !1
+        })  ; 
+ 
+ 
+ 
+ }
+ 
+ 
+
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+  function secondLevelIncreaseSingle(object) {
+  
+
+   secondLevelSize[index(cy.elements(".second-level"),object)] = object.animation({
+            css: {
+                height: 55,
+                width: 55
+            }
+        }, {
+            duration:  (55 - parseInt(object.style("height"))) *30,
+            queue: !1
+        })  ; 
+ 
+ 
+ 
+ }
+ 
+ 
+
+ 
+ 
+   function secondLevelDecreaseSingle(object) {
+  
+
+   secondLevelSize[index(cy.elements(".second-level"),object)] = object.animation({
+            css: {
+                height: 45,
+                width: 45
+            }
+        }, {
+             duration: (parseInt(object.style("height")) - 45) * 30,
+            queue: !1
+        })  ; 
+ 
+ 
+ 
+ }
+ 
+ 
+   function thirdLevelDecreaseSingle(object) {
+  
+
+   thirdLevelSize[index(cy.elements(".third-level"),object)] = object.animation({
+            css: {
+                height: 10,
+                width: 10
+            }
+        }, {
+             duration: (parseInt(object.style("height")) - 10) * 60,
+            queue: !1
+        })  ; 
+ 
+ 
+ 
+ }
+  function thirdLevelIncreaseSingle(object) {
+  
+
+   thirdLevelSize[index(cy.elements(".third-level"),object)] = object.animation({
+            css: {
+                height: 15,
+                width: 15
+            }
+        }, {
+            duration:  (15 - parseInt(object.style("height"))) *60,
+            queue: !1
+        })  ; 
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ function fade () {
+ 
+
+ 
+   cy.nodes().forEach(function(ele) {
+            ele.hasClass("active") || firstLevelOpacity[index(cy.nodes(),ele)].stop() && (firstLevelOpacity[index(cy.nodes(),ele)] = ele.animation({
+                css: {
+                    opacity: .3
+                }
+            }, {
+                duration: (ele.style("opacity")-0.3)*3000/7,
+                queue: !1
+            }), ele.addClass("inactive")) && firstLevelOpacity[index(cy.nodes(),ele)].play()
+        })
+ 
+ 
+ 
+
+ 
+ 
+ }
+ function appear () {
+ 
+ 
+ 
+ 
+ 
+ cy.nodes().forEach(function(ele) {
+           
+		   ele.hasClass("inactive") && firstLevelOpacity[index(cy.nodes(),ele)].stop() &&  (firstLevelOpacity[index(cy.nodes(),ele)]=ele.animation({
+                css: {
+                    opacity: 1
+                }
+            }, {
+                duration: (1- ele.style("opacity"))*3000/7,
+                queue: !1
+            }), ele.removeClass("inactive")) && firstLevelOpacity[index(cy.nodes(),ele)].play() && console.log("hey")
         }
-        
  
- );
- anims[x].rewind();
- }
- console.log(anims);
- return anims;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ )
+ 
+ console.log(firstLevelOpacity);
  }
  
- var secondLevelAnims = nodeAnimate(45,cy.elements(".second-level"));
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ function index (where, what) {
+ for (var x = 0; x < where.length; x++)
+ {
+ if (where[x] === what){
+ 
+ return x;
+ }
+ 
+ }
+ return 0;
+ }
+ 
+ 
+ var firstLevelOpacity = [];
+ for (var x =0; x<cy.nodes().length;x++){
+ firstLevelOpacity[x] = cy.nodes()[x].animation();
+ 
+ 
+ }
+console.log(firstLevelOpacity); 
+ var secondLevelSize = [];
+ secondLevelIncrease(cy.elements(".second-level"));
+ var thirdLevelSize =[];
+for (var x =0; x<cy.elements(".third-level").length;x++){
+ thirdLevelSize[x] = cy.elements(".third-level")[x].animation();
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -901,9 +1097,27 @@
         var n = this;
         $("#save-graph-button").html() == undefined && (window.location.href = this.data().link)
     });
+	
+	
+	
    cy.elements(".node.first-level").on("mouseover", function() {
-        for  (var x = 0; x< secondLevelAnims.length; x++){
-		 if (secondLevelAnims[x].progress() == 0){secondLevelAnims[x].play();console.log("did");}else {secondLevelAnims[x].reverse().play();} }
+         
+		 
+		 secondLevelSize.forEach(function (ani) {ani.stop();} )
+		 secondLevelIncrease(cy.elements(".second-level"));
+	     secondLevelSize.forEach(function (ani) {ani.play();} )
+		 /*cy.elements(".second-level").stop();
+		 cy.elements(".second-level").forEach(function (ele) { ele.animate({
+            css: {
+                height: 55,
+                width: 55
+            }
+        }, {
+            duration:  (55 - parseInt(ele.style("height"))) *30,
+            queue: !1
+        })  } ); */
+		
+		 
         this.neighborhood(".node.second-level").addClass("active").neighborhood(".text").addClass("active");
         this.neighborhood(".node.second-level").connectedEdges().hide();
         this.neighborhood(".node.third-level").animate({
@@ -918,22 +1132,32 @@
        
         this.addClass("active").neighborhood(".text").addClass("active");
         this.connectedEdges().show();
-        cy.nodes().forEach(function(ele) {
-            ele.hasClass("active") || (ele.animate({
-                css: {
-                    opacity: .3
-                }
-            }, {
-                duration: 300,
-                queue: !1
-            }), ele.addClass("inactive"))
-        })
+		
+		
+		
+		
+		
+       fade();
     });
+	
     cy.elements(".node.first-level").on("mouseout", function() {
         this.removeClass("active").neighborhood(".text").removeClass("active");
-        for  (var x = 0; x< secondLevelAnims.length; x++){
+		secondLevelSize.forEach(function (ani) {ani.stop();} )
+		 secondLevelDecrease(cy.elements(".second-level"));
+	     secondLevelSize.forEach(function (ani) {ani.play();} )
+       /*cy.elements(".second-level").stop();
+		cy.elements(".second-level").forEach( function(ele) {
+		ele.animate({
+            css: {
+                height: 45,
+                width: 45
+            }
+        }, {
+            duration: (parseInt(ele.style("height")) - 45) * 30,
+            queue: !1
+        })} )*/
 		
-		 if (secondLevelAnims[x].progress() == 0){secondLevelAnims[x].progress(0.0001); }secondLevelAnims[x].reverse().play(); console.log("did");}
+		 
 		this.neighborhood(".node.second-level").removeClass("active").neighborhood(".text").removeClass("active");
         cy.elements(".second-level").connectedEdges().show();
         this.neighborhood(".node.third-level").animate({
@@ -952,28 +1176,37 @@
             duration: 300,
             queue: !1
         }).removeClass("active");
-        cy.nodes().forEach(function(ele) {
-            ele.hasClass("inactive") && (ele.animate({
-                css: {
-                    opacity: 1
-                }
-            }, {
-                duration: 300,
-                queue: !1
-            }), ele.removeClass("inactive"))
-        })
+       appear();
     });
+	
+	
+	
+	
     cy.elements(".node.second-level").on("mouseover", function() {
         this.addClass("active").neighborhood(".node.third-level").addClass("active");
+		console.log(index(cy.elements(".second-level"),this));
+		secondLevelSize[index(cy.elements(".second-level"),this)].stop();
+		secondLevelIncreaseSingle(this);
+		secondLevelSize[index(cy.elements(".second-level"),this)].play();
+		/*this.stop();
 		this.animate({
             css: {
                 height: 55,
                 width: 55
             }
         }, {
-            duration: 300,
+            duration:  (55 - parseInt(this.style("height"))) *30,
             queue: !1
-        })
+        })*/
+		
+		 this.neighborhood(".third-level").forEach( function (ele) { thirdLevelSize[index(cy.elements(".third-level"),ele)].stop();
+		thirdLevelIncreaseSingle(ele);
+		thirdLevelSize[index(cy.elements(".third-level"),ele)].play();
+		})
+		
+		
+		
+		
         this.neighborhood(".node.third-level").neighborhood(".third-level-title").addClass("active");
         cy.elements(".third-level-title").animate({
             css: {
@@ -988,27 +1221,35 @@
         this.connectedEdges().show();
         cy.elements(".first-level").connectedEdges().hide();
         cy.elements(".button").hide();
-        cy.nodes().forEach(function(ele) {
-            ele.hasClass("active") || (ele.animate({
-                css: {
-                    opacity: .3
-                }
-            }, {
-                duration: 300,
-                queue: !1
-            }), ele.addClass("inactive"))
-        })
+       fade();
     });
     cy.elements(".node.second-level").on("mouseout", function() {
-        this.animate({
+               
+
+        secondLevelSize[index(cy.elements(".second-level"),this)].stop();
+		secondLevelDecreaseSingle(this);
+		secondLevelSize[index(cy.elements(".second-level"),this)].play();
+
+	   /*this.stop();
+		this.animate({
             css: {
                 height: 45,
                 width: 45
             }
         }, {
-            duration: 300,
+            duration: (parseInt(this.style("height")) - 45) * 30,
             queue: !1
-        }).removeClass("active").neighborhood(".node.third-level").removeClass("active");
+        });*/
+		
+		this.neighborhood(".third-level").forEach( function (ele) { thirdLevelSize[index(cy.elements(".third-level"),ele)].stop();
+		thirdLevelDecreaseSingle(ele);
+		thirdLevelSize[index(cy.elements(".third-level"),ele)].play();
+		})
+		
+		
+		
+		
+		this.removeClass("active").neighborhood(".node.third-level").removeClass("active");
         cy.elements("edge").show();
         this.neighborhood(".node.third-level").neighborhood(".third-level-title").removeClass("active");
         cy.elements(".third-level-title").animate({
@@ -1021,20 +1262,17 @@
         });
         this.neighborhood(".text").removeClass("active");
         cy.elements(".button").show();
-        cy.nodes().forEach(function(ele) {
-            ele.hasClass("inactive") && (ele.animate({
-                css: {
-                    opacity: 1
-                }
-            }, {
-                duration: 300,
-                queue: !1
-            }), ele.removeClass("inactive"))
-        })
+        appear();
     });
     cy.elements(".node.third-level").on("mouseover", function() {
         this.addClass("active").neighborhood(".third-level-title").addClass("active");
-        this.animate({
+		
+		thirdLevelSize[index(cy.elements(".third-level"),this)].stop();
+		thirdLevelIncreaseSingle(this);
+		thirdLevelSize[index(cy.elements(".third-level"),this)].play();
+		
+		
+        /*this.animate({
             css: {
                   height: 15,
                 width: 15
@@ -1042,23 +1280,21 @@
         }, {
             duration: 300,
             queue: !1
-        });
+        });*/
         cy.elements("edge").hide();
         cy.elements(".button").hide();
-        cy.nodes().forEach(function(ele) {
-            ele.hasClass("active") || (ele.animate({
-                css: {
-                    opacity: .3
-                }
-            }, {
-                duration: 300,
-                queue: !1
-            }), ele.addClass("inactive"))
-        })
+        fade();
     });
     cy.elements(".node.third-level").on("mouseout", function() {
         this.removeClass("active").neighborhood(".third-level-title").removeClass("active");
-       this.animate({
+          thirdLevelSize[index(cy.elements(".third-level"),this)].stop();
+		thirdLevelDecreaseSingle(this);
+		thirdLevelSize[index(cy.elements(".third-level"),this)].play();
+	   
+	   
+	   
+	   
+	   /*this.animate({
             css: {
                  height: 10,
                 width: 10
@@ -1066,10 +1302,10 @@
         }, {
             duration: 300,
             queue: !1
-        });
+        });*/
         cy.elements("edge").show();
         cy.elements(".button").show();
-        cy.nodes().forEach(function(ele) {
+        /*cy.nodes().forEach(function(ele) {
             ele.hasClass("inactive") && (ele.animate({
                 css: {
                     opacity: 1
@@ -1078,7 +1314,8 @@
                 duration: 300,
                 queue: !1
             }), ele.removeClass("inactive"))
-        })
+        })*/
+		appear();
     });
  
 
